@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}AquaCajay · Mi perfil{% endblock %}
+{% block content %}
+
+<section class="page-head wrap">
+  <span class="eyebrow">Mi cuenta</span>
+  <h1>Hola, {{ usuario.nombre }}</h1>
+  <p class="page-lead">Aquí puedes ver tus datos y el historial de tus reportes.</p>
+</section>
+
+<section class="wrap section section-narrow">
+  <div class="card profile-card">
+    <h2>Datos de la cuenta</h2>
+    <dl class="profile-info">
+      <div><dt>Nombre</dt><dd>{{ usuario.nombre }}</dd></div>
+      <div><dt>Correo</dt><dd>{{ usuario.correo }}</dd></div>
+      {% if usuario.zona %}<div><dt>Zona</dt><dd>{{ usuario.zona }}</dd></div>{% endif %}
+    </dl>
+  </div>
+
+  <div class="card">
+    <h2>Historial de reportes</h2>
+    <table class="report-table">
+      <thead>
+        <tr><th>Código</th><th>Tipo</th><th>Zona</th><th>Fecha</th><th>Estado</th></tr>
+      </thead>
+      <tbody>
+        {% for r in reportes %}
+        <tr>
+          <td>{{ r.codigo }}</td>
+          <td>{{ r.tipo }}</td>
+          <td>{{ r.zona }}</td>
+          <td>{{ r.fecha }}</td>
+          <td><span class="pill {{ 'pill-normal' if r.estado == 'Resuelto' else 'pill-bajo' }}">{{ r.estado }}</span></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+
+{% endblock %}

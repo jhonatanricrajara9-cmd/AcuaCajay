@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Menú</title>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+
+<main id="main-content" class="container text-center mt-5 page-card" role="main">
+
+		<h1>🗂️ Menú Principal</h1>
+
+		<section aria-label="Menú principal" class="menu-grid mt-5">
+
+			<a href="/proyecto" class="menu-button btn btn-primary" role="button" aria-label="Ir a Sobre el Proyecto">
+				<span class="menu-icon">💡</span>
+				<span class="menu-label">Sobre el Proyecto</span>
+			</a>
+
+			<a href="/ayuda" class="menu-button btn btn-success" role="button" aria-label="Ir a Cómo se utiliza">
+				<span class="menu-icon">📚</span>
+				<span class="menu-label">Cómo se utiliza</span>
+			</a>
+
+			<a href="/simulacion" class="menu-button btn btn-danger" role="button" aria-label="Ir a Simulación">
+				<span class="menu-icon">🎛️</span>
+				<span class="menu-label">Simulación</span>
+			</a>
+
+			<a href="/contacto" class="menu-button btn btn-warning" role="button" aria-label="Ir a Contacto">
+				<span class="menu-icon">📞</span>
+				<span class="menu-label">Contacto</span>
+			</a>
+
+			<div class="menu-bottom">
+				<a href="/acerca" class="btn btn-dark small-bottom" role="button" aria-label="Ir a Acerca de">
+					<span class="menu-icon">ℹ️</span>
+					<span class="menu-label">Acerca de</span>
+				</a>
+			</div>
+
+		</section>
+
+	</main>
+
+</body>
+
+</html>

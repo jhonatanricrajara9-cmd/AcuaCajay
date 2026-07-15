@@ -1,0 +1,71 @@
+{% extends "base.html" %}
+{% block title %}AquaCajay · Inicio{% endblock %}
+{% block content %}
+
+<section class="hero">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="eyebrow">Cajay · Red comunitaria de agua</span>
+      <h1>El agua de todos,<br>cuidada entre todos.</h1>
+      <p class="hero-lead">
+        Consulta el estado del suministro por zona, entérate de avisos importantes
+        y reporta una incidencia en minutos, sin llamadas ni trámites de oficina.
+      </p>
+      <div class="hero-actions">
+        <a href="{{ url_for('reportar') }}" class="btn btn-clay">Reportar una incidencia</a>
+        <a href="{{ url_for('suministro') }}" class="btn btn-ghost">Ver estado del suministro</a>
+      </div>
+    </div>
+    <div class="hero-wave-card" aria-hidden="true">
+      <div class="wave-gauge wave-gauge-hero">
+        <div class="wave-fill" style="--nivel: 72%;">
+          <svg class="wave-svg" viewBox="0 0 400 40" preserveAspectRatio="none">
+            <path d="M0 20 C 50 0, 100 40, 150 20 S 250 0, 300 20 S 400 40, 400 20 V40 H0 Z"></path>
+          </svg>
+        </div>
+      </div>
+      <p class="wave-caption">Nivel promedio de reservorio · Cajay Centro</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head">
+    <h2>Estado rápido por zona</h2>
+    <a href="{{ url_for('suministro') }}" class="link-arrow">Ver todas las zonas →</a>
+  </div>
+  <div class="zone-strip">
+    {% for zona in zonas %}
+      <div class="zone-chip">
+        <span class="pill {{ estados[zona.estado].clase }}">{{ estados[zona.estado].etiqueta }}</span>
+        <strong>{{ zona.nombre }}</strong>
+        <span class="zone-updated">Actualizado {{ zona.actualizado }}</span>
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="wrap section">
+  <div class="section-head">
+    <h2>Todo lo que necesitas, en un solo lugar</h2>
+  </div>
+  <div class="feature-grid">
+    <a class="feature-card" href="{{ url_for('avisos') }}">
+      <span class="feature-icon">📣</span>
+      <h3>Avisos</h3>
+      <p>Cortes programados, mantenimientos y comunicados de la junta de agua.</p>
+    </a>
+    <a class="feature-card" href="{{ url_for('reportar') }}">
+      <span class="feature-icon">📝</span>
+      <h3>Reportar</h3>
+      <p>Cuéntanos sobre fugas, baja presión o falta de agua en tu zona.</p>
+    </a>
+    <a class="feature-card" href="{{ url_for('suministro') }}">
+      <span class="feature-icon">💧</span>
+      <h3>Suministro</h3>
+      <p>Consulta el nivel y estado del agua en cada zona de la comunidad.</p>
+    </a>
+  </div>
+</section>
+
+{% endblock %}

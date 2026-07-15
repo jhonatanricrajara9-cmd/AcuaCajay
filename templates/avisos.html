@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}AquaCajay · Avisos{% endblock %}
+{% block content %}
+
+<section class="page-head wrap">
+  <span class="eyebrow">Comunicados</span>
+  <h1>Avisos de la comunidad</h1>
+  <p class="page-lead">Mantente al tanto de cortes programados, obras y recomendaciones de la junta de agua.</p>
+</section>
+
+<section class="wrap section">
+  <div class="live-feed">
+    <div class="live-feed-head">
+      <span class="live-dot" aria-hidden="true"></span>
+      <h2>Notificaciones en vivo por zona</h2>
+    </div>
+    <div class="live-list" id="liveList">
+      <p id="liveEmpty" style="color: var(--text-muted); font-size: 0.9rem; margin: 0;">Esperando actualizaciones…</p>
+    </div>
+  </div>
+
+  <div class="avisos-list">
+    {% for aviso in avisos %}
+      <article class="aviso-card">
+        <div class="aviso-meta">
+          <span class="pill pill-{{ aviso.tipo }}">
+            {% if aviso.tipo == 'urgente' %}Urgente{% elif aviso.tipo == 'informativo' %}Informativo{% else %}Aviso{% endif %}
+          </span>
+          <span class="aviso-fecha">{{ aviso.fecha }}</span>
+        </div>
+        <h2>{{ aviso.titulo }}</h2>
+        <p>{{ aviso.cuerpo }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% endblock %}

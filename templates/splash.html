@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AquaCajay · Bienvenido</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body class="splash-body">
+
+<div class="splash">
+  <div class="splash-waves" aria-hidden="true">
+    <svg class="splash-wave splash-wave-1" viewBox="0 0 400 40" preserveAspectRatio="none">
+      <path d="M0 20 C 50 0, 100 40, 150 20 S 250 0, 300 20 S 400 40, 400 20 V40 H0 Z"></path>
+    </svg>
+    <svg class="splash-wave splash-wave-2" viewBox="0 0 400 40" preserveAspectRatio="none">
+      <path d="M0 20 C 50 0, 100 40, 150 20 S 250 0, 300 20 S 400 40, 400 20 V40 H0 Z"></path>
+    </svg>
+  </div>
+
+  <div class="splash-content">
+    <span class="splash-mark" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="44" height="44"><path fill="currentColor" d="M12 2C8 8 4 12.5 4 16.5 4 20.09 7.58 23 12 23s8-2.91 8-6.5C20 12.5 16 8 12 2z"/></svg>
+    </span>
+    <h1>AquaCajay</h1>
+    <p class="splash-tagline">Bienvenido a la plataforma comunitaria del agua de Cajay.</p>
+
+    <a href="{{ url_for('login') }}" class="btn splash-btn-hero">Iniciar sesión</a>
+
+    <div class="splash-secondary">
+      <a href="{{ url_for('register') }}">Crear cuenta</a>
+      <span class="splash-dot" aria-hidden="true">·</span>
+      <a href="{{ url_for('index') }}">Explorar sin iniciar sesión</a>
+    </div>
+
+    <div class="splash-qr-card">
+      <img src="{{ url_for('static', filename='img/qr.png') }}"
+           alt="Código QR para abrir AquaCajay desde tu celular"
+           onerror="this.closest('.splash-qr-card').style.display='none'">
+      <p>Escanea para abrir AquaCajay en tu celular</p>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

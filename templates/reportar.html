@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %}AquaCajay · Reportar{% endblock %}
+{% block content %}
+
+<section class="page-head wrap">
+  <span class="eyebrow">Reportar</span>
+  <h1>Cuéntanos qué está pasando</h1>
+  <p class="page-lead">Entre más detalle nos des, más rápido podremos atender tu reporte.</p>
+</section>
+
+<section class="wrap section section-narrow">
+  <form class="card form-card" method="post">
+    <div class="form-row">
+      <label for="tipo">Tipo de incidencia</label>
+      <select id="tipo" name="tipo" required>
+        <option value="" disabled selected>Selecciona una opción</option>
+        {% for tipo in tipos %}
+          <option value="{{ tipo }}">{{ tipo }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="zona">Zona</label>
+      <select id="zona" name="zona" required>
+        <option value="" disabled selected>Selecciona tu zona</option>
+        {% for zona in zonas %}
+          <option value="{{ zona.nombre }}">{{ zona.nombre }}</option>
+        {% endfor %}
+      </select>
+    </div>
+    <div class="form-row">
+      <label for="referencia">Dirección o referencia</label>
+      <input type="text" id="referencia" name="referencia" placeholder="Ej. Jr. Los Álamos 245, frente a la posta" required>
+    </div>
+    <div class="form-row">
+      <label for="descripcion">Descripción</label>
+      <textarea id="descripcion" name="descripcion" rows="4" placeholder="Describe lo que observas: hace cuánto ocurre, si afecta a más vecinos, etc." required></textarea>
+    </div>
+    <div class="form-row">
+      <label for="foto">Foto (opcional)</label>
+      <input type="file" id="foto" name="foto" accept="image/*">
+    </div>
+    <button type="submit" class="btn btn-clay btn-block">Enviar reporte</button>
+  </form>
+</section>
+
+{% endblock %}
